@@ -10,21 +10,27 @@ void print_array(int*arr, int size){
 }
 
 int main(){
+  int INPUT = false; // set true to take input from stdin
   int i, n, first, middle, last;
-  int arr[10];
+  int arr[10] = {0, 5, 11, 20, 22, 23, 34, 58, 72, 170}; // must be sorted
 
+  if (INPUT){
   // Input Array
   cout << "Enter 10 Nmbers in ascending order in Followings\n";
-  for(i=0; i<10; i++){
-    cout << "Number-" << i + 1 << ": ";
-    cin >> arr[i];
+    for(i=0; i<10; i++){
+      cout << "Number-" << i + 1 << ": ";
+      cin >> arr[i];
+    }
   }
 
   print_array(arr, 10);
+  n = 22;
 
-  // Get Number to Search
-  cout << "Enter Number to Search in Array: ";
-  cin >> n;
+  if(INPUT){
+    // Get Number to Search
+    cout << "Enter Number to Search in Array: ";
+    cin >> n;
+  }
 
   // Find Index
   first=0;
@@ -35,8 +41,6 @@ int main(){
 
   while(first<=last){
     counter++;
-    // cout << "First : " << first << " & Middle : " << middle << " & Last : " << last << " at Counter : " << counter << '\n';
-    // if(counter > 100) break;
 
     if(arr[middle] < n){
       first = middle + 1;
